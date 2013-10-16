@@ -1,20 +1,35 @@
 library(shiny)
 
 shinyServer(function(input, output) {
-
+  
+  # --------------------------------------------------------------------------
+  # Make x values and some normally distributed random noise
+  random.sample <- reactive({
+    
+    # Dummy line to trigger off button-press
+    foo <- input$resample
+    n.obs <- 60
+    x <- runif(n.obs, 0, 2)
+    noise <- rnorm(n.obs) 
+    return(list(x=x, noise=noise))
+      
+  })
+    
   # --------------------------------------------------------------------------
   # Set up the dataset based on the inputs 
   make.regression <- reactive({
     
+    sample <- random.sample()
+    
     # Set up the true model
-    n.obs = 60
+    n.obs <- 60
     x.0 <- rep(1, n.obs)
-    x.1 <- runif(n.obs, 0, 2)
+    x.1 <- sample$x
     x.2 <- rep(c(0, 1), n.obs / 2)
     x.3 <- x.1 * x.2
     X <- matrix(c(x.0, x.1, x.2, x.3), ncol=4)
     b <- matrix(c(input$a, input$b, input$c, input$d))
-    y <- X %*% b + rnorm(n.obs, 0, input$e)
+    y <- X %*% b + sample$noise * input$e
     colnames(X) <- c("intercept", "x", "group", "interaction")
     df <- as.data.frame(X)
     df$y <- y
