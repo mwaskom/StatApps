@@ -1,4 +1,5 @@
 library(shiny)
+library(RColorBrewer)
 
 shinyServer(function(input, output) {
   
@@ -11,7 +12,8 @@ shinyServer(function(input, output) {
     n.obs <- 60
     x <- runif(n.obs, 0, 2)
     noise <- rnorm(n.obs) 
-    return(list(x=x, noise=noise))
+    color <- sample(brewer.pal(9, "Set1")[-6], 1)
+    return(list(x=x, noise=noise, color=color))
       
   })
     
@@ -80,18 +82,20 @@ shinyServer(function(input, output) {
     coefs <- fit.regression()$fit.res$coefficients
     
     # Plot the true model
+    other.color <- random.sample()$color
     plot(x[g == 0], y[g == 0], xlim=c(0, 2), ylim=c(-1, 8),
          pch=16, cex=1.2, col="#333333", bty="n", xlab="x", ylab="y")
-    points(x[g == 1], y[g == 1], pch=16, cex=1.2, col="#339933")
+    points(x[g == 1], y[g == 1], pch=16, cex=1.2, col=other.color)
     
     if (input$model == "Simple regression") {
       abline(coefs["(Intercept)"], coefs["x"], col="#333333", lwd=3)
     } else if (input$model == "Additive model") {
       abline(coefs["(Intercept)"], coefs["x"], col="#333333", lwd=3)
-      abline(coefs["(Intercept)"] + coefs["group"], coefs["x"], col="#339933", lwd=3)
+      abline(coefs["(Intercept)"] + coefs["group"], coefs["x"], col=other.color, lwd=3)
     } else if (input$model == "Interactive model") {
       abline(coefs["(Intercept)"], coefs["x"], col="#333333", lwd=3)
-      abline(coefs["(Intercept)"] + coefs["group"], coefs["x"] + coefs["x:group"], col="#339933", lwd=3)
+      abline(coefs["(Intercept)"] + coefs["group"],
+             coefs["x"] + coefs["x:group"], col=other.color, lwd=3)
     }
     
   })
