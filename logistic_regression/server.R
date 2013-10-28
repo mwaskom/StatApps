@@ -53,7 +53,7 @@ shinyServer(function(input, output) {
   })
 
   #---------------------------------------------------------------------------
-  # Plot a scatter of the data and the current model with residuals
+  # Plot the data along with the current logistic model
   output$reg.plot <- renderPlot({         
   
     # Get the current regression data
@@ -92,7 +92,7 @@ shinyServer(function(input, output) {
   })
   
   #---------------------------------------------------------------------------
-  # Plot the current sum squares along with the minumum possible
+  # Plot the log likelihood of the data with the current model
   output$like.plot <- renderPlot({
     
     # Get the current regression data
