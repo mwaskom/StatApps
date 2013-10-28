@@ -79,3 +79,16 @@ regression, or an interactive multiple regression, and it shows the
 user control the true effect size for each component of the data to help
 build intuition about the visual and statistical consequences of
 different relationships between variables in a multiple regression.
+
+Multicollinearity in multiple regression
+----------------------------------------
+
+[Link to app](http://spark.rstudio.com/supsych/collinearity/)
+
+This app shows what happens to multiple regression results when there is
+considerable covariance between two contiunous predictor variables. Although
+the overall model fit does not change as the covariance is increased (as
+visualized by the regression of y onto yhat and the R squared in the model
+summary), the parameter estimates become unstable and the confidence intervals
+expand, which yields large p values even though the relationship between the
+predictors and the response variable does not change.
