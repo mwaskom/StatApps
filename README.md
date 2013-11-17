@@ -63,7 +63,7 @@ likelihood of the data you are fitting the model to.
 Regression uncertainty
 ----------------------
 
-![](regression_uncertainty/screenshot.png)
+![](regression_bootstrap/screenshot.png)
 
 [Link to app](http://spark.rstudio.com/supsych/regression_bootstrap/)
 
