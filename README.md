@@ -8,6 +8,8 @@ intuitions about some statistical concepts.
 Sampling and standard error
 ---------------------------
 
+![](sampling_and_stderr/screenshot.png)
+
 [Link to app](http://spark.rstudio.com/supsych/sampling_and_stderr/)
 
 This example demonstrates the relationship between the standard
@@ -22,6 +24,8 @@ of means (under normal assumptions).
 Simulating t tests
 ------------------
 
+![](ttest_simulation/screenshot.png)
+
 [Link to app](http://spark.rstudio.com/supsych/ttest_simulation/)
 
 This example performs 1000 one-sample t tests (with different samples
@@ -35,6 +39,8 @@ hypothesis is true.
 Simple linear regression
 ------------------------
 
+![](simple_regression/screenshot.png)
+
 [Link to app](http://spark.rstudio.com/supsych/simple_regression/)
 
 This example demonstrates the key objective of linear regression:
@@ -45,6 +51,8 @@ the same value of x.
 Simple logistic regression
 --------------------------
 
+![](logistic_regression/screenshot.png)
+
 [Link to app](http://spark.rstudio.com/supsych/logistic_regression/)
 
 Similar to the linear regression example, this app shows how the goal of
@@ -54,6 +62,8 @@ likelihood of the data you are fitting the model to.
 
 Regression uncertainty
 ----------------------
+
+![](regression_uncertainty/screenshot.png)
 
 [Link to app](http://spark.rstudio.com/supsych/regression_bootstrap/)
 
@@ -69,6 +79,8 @@ of a regression.
 Modeling choices in multiple regression
 ---------------------------------------
 
+![](multi_regression/screenshot.png)
+
 [Link to app](http://spark.rstudio.com/supsych/multi_regression/)
 
 This app plots a basic multiple regression with two variables: x, a
@@ -83,6 +95,8 @@ different relationships between variables in a multiple regression.
 Multicollinearity in multiple regression
 ----------------------------------------
 
+![](collinearity/screenshot.png)
+
 [Link to app](http://spark.rstudio.com/supsych/collinearity/)
 
 This app shows what happens to multiple regression results when there is
@@ -96,6 +110,8 @@ predictors and the response variable does not change.
 
 Simple mediation structure
 --------------------------
+
+![](mediation/screenshot.png)
 
 [Link to app](http://spark.rstudio.com/supsych/mediation/)
 
