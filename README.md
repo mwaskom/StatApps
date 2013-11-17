@@ -92,3 +92,18 @@ visualized by the regression of y onto yhat and the R squared in the model
 summary), the parameter estimates become unstable and the confidence intervals
 expand, which yields large p values even though the relationship between the
 predictors and the response variable does not change.
+
+
+Simple mediation structure
+--------------------------
+
+[Link to app](http://spark.rstudio.com/supsych/mediation/)
+
+This app is intended to provide some intuition about simple mediation models.
+It allows you to specify a range of causal structures by changing the strength
+(and direction) of the relationships between three variables. Once you have
+constructed a structure, you can observe the effects of manipulating the
+system. Finally, you can simulate data from a model with the specified
+structure and observe how changing the strength of the relationships influences
+the regression parameters and inferential statistics.
+
