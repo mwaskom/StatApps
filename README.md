@@ -10,7 +10,7 @@ Sampling and standard error
 
 ![](sampling_and_stderr/screenshot.png)
 
-[Link to app](http://spark.rstudio.com/supsych/sampling_and_stderr/)
+[Link to app](https://supsych.shinyapps.io/sampling_and_stderr/)
 
 This example demonstrates the relationship between the standard
 deviation of a population, the standard deviation and standard error of
@@ -26,7 +26,7 @@ Simulating t tests
 
 ![](ttest_simulation/screenshot.png)
 
-[Link to app](http://spark.rstudio.com/supsych/ttest_simulation/)
+[Link to app](https://supsych.shinyapps.io/ttest_simulation/)
 
 This example performs 1000 one-sample t tests (with different samples
 from the same distribution) and plots the resulting histograms of t
@@ -41,7 +41,7 @@ Simple linear regression
 
 ![](simple_regression/screenshot.png)
 
-[Link to app](http://spark.rstudio.com/supsych/simple_regression/)
+[Link to app](https://gallery.shinyapps.io/regression_bootstrap/)
 
 This example demonstrates the key objective of linear regression:
 finding the coefficients for a linear model that minimize the squared
@@ -53,7 +53,7 @@ Simple logistic regression
 
 ![](logistic_regression/screenshot.png)
 
-[Link to app](http://spark.rstudio.com/supsych/logistic_regression/)
+[Link to app](https://supsych.shinyapps.io/logistic_regression/)
 
 Similar to the linear regression example, this app shows how the goal of
 logistic regression is to find a model (expressed in linear coefficients
@@ -65,7 +65,7 @@ Regression uncertainty
 
 ![](regression_bootstrap/screenshot.png)
 
-[Link to app](http://spark.rstudio.com/supsych/regression_bootstrap/)
+[Link to app](https://gallery.shinyapps.io/regression_bootstrap/)
 
 This app plots a simple linear regression and allows the user to
 visualize the distribution of regression estimates from bootstrap
@@ -81,7 +81,7 @@ Modeling choices in multiple regression
 
 ![](multi_regression/screenshot.png)
 
-[Link to app](http://spark.rstudio.com/supsych/multi_regression/)
+[Link to app](https://gallery.shinyapps.io/multi_regression/)
 
 This app plots a basic multiple regression with two variables: x, a
 continuous measure, and group, a categorical measure. The app lets the
@@ -97,7 +97,7 @@ Multicollinearity in multiple regression
 
 ![](collinearity/screenshot.png)
 
-[Link to app](http://spark.rstudio.com/supsych/collinearity/)
+[Link to app](https://gallery.shinyapps.io/collinearity/)
 
 This app shows what happens to multiple regression results when there is
 considerable covariance between two contiunous predictor variables. Although
@@ -113,7 +113,7 @@ Simple mediation structure
 
 ![](mediation/screenshot.png)
 
-[Link to app](http://spark.rstudio.com/supsych/mediation/)
+[Link to app](https://supsych.shinyapps.io/mediation)
 
 This app is intended to provide some intuition about simple mediation models.
 It allows you to specify a range of causal structures by changing the strength
