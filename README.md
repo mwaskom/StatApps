@@ -8,7 +8,7 @@ intuitions about some statistical concepts.
 Sampling and standard error
 ---------------------------
 
-![](sampling_and_stderr/screenshot.png)
+![](shiny/sampling_and_stderr/screenshot.png)
 
 [Link to app](http://spark.rstudio.com/supsych/sampling_and_stderr/)
 
@@ -24,7 +24,7 @@ of means (under normal assumptions).
 Simulating t tests
 ------------------
 
-![](ttest_simulation/screenshot.png)
+![](shiny/ttest_simulation/screenshot.png)
 
 [Link to app](http://spark.rstudio.com/supsych/ttest_simulation/)
 
@@ -39,7 +39,7 @@ hypothesis is true.
 Simple linear regression
 ------------------------
 
-![](simple_regression/screenshot.png)
+![](shiny/simple_regression/screenshot.png)
 
 [Link to app](http://spark.rstudio.com/supsych/simple_regression/)
 
@@ -51,7 +51,7 @@ the same value of x.
 Simple logistic regression
 --------------------------
 
-![](logistic_regression/screenshot.png)
+![](shiny/logistic_regression/screenshot.png)
 
 [Link to app](http://spark.rstudio.com/supsych/logistic_regression/)
 
@@ -63,7 +63,7 @@ likelihood of the data you are fitting the model to.
 Regression uncertainty
 ----------------------
 
-![](regression_bootstrap/screenshot.png)
+![](shiny/regression_bootstrap/screenshot.png)
 
 [Link to app](http://spark.rstudio.com/supsych/regression_bootstrap/)
 
@@ -79,7 +79,7 @@ of a regression.
 Modeling choices in multiple regression
 ---------------------------------------
 
-![](multi_regression/screenshot.png)
+![](shiny/multi_regression/screenshot.png)
 
 [Link to app](http://spark.rstudio.com/supsych/multi_regression/)
 
@@ -95,7 +95,7 @@ different relationships between variables in a multiple regression.
 Multicollinearity in multiple regression
 ----------------------------------------
 
-![](collinearity/screenshot.png)
+![](shiny/collinearity/screenshot.png)
 
 [Link to app](http://spark.rstudio.com/supsych/collinearity/)
 
@@ -111,7 +111,7 @@ predictors and the response variable does not change.
 Simple mediation structure
 --------------------------
 
-![](mediation/screenshot.png)
+![](shiny/mediation/screenshot.png)
 
 [Link to app](http://spark.rstudio.com/supsych/mediation/)
 
