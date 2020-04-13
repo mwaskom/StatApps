@@ -84,17 +84,43 @@ def update_histograms(effect_size, sample_size):
     sems = sample.std(axis=0) / np.sqrt(sample_size)
 
     # Compute the t statistic and corresponding (one-tailed) p value
+    dof = sample_size - 1
+    t_dist = stats.t(dof)
     ts = means / sems
-    ps = stats.t(sample_size - 1).sf(ts)
+    ps = t_dist.sf(ts)
+
+    # Compute the critical values
+    alpha = .05
+    t_crit = t_dist.ppf(1 - alpha)
+    p_crit = alpha
+
+    # Compute the theoretical power and empirical proportion of rejected nulls
+    if effect_size:
+        effect_dist = stats.t(dof, loc=effect_size * np.sqrt(sample_size))
+        theory_power = effect_dist.sf(t_crit)
+    else:
+        theory_power = np.nan
+    rejected_nulls = (ts > t_crit).mean()
+    titles = (
+        f"Theoretical power: {theory_power:.2f}",
+        f"Proportion rejected nulls: {rejected_nulls:.2f}",
+    )
 
     # Set up the figure to show the results of the simulation
-    fig = make_subplots(rows=1, cols=2, subplot_titles=("t stats", "p values"))
+    fig = make_subplots(rows=1, cols=2,
+                        subplot_titles=titles)
 
     fig.update_layout(shapes=[
         dict(
           type="line",
           yref="paper", y0=0, y1=1,
-          xref="x2", x0=.05, x1=.05,
+          xref="x1", x0=t_crit, x1=t_crit,
+          line=dict(color="#999999", dash="dot")
+        ),
+        dict(
+          type="line",
+          yref="paper", y0=0, y1=1,
+          xref="x2", x0=p_crit, x1=p_crit,
           line=dict(color="#999999", dash="dot")
         )
     ])
@@ -103,14 +129,14 @@ def update_histograms(effect_size, sample_size):
     tbins = dict(start=-10, end=10, size=.5)
     t_hist = go.Histogram(x=ts, autobinx=False, xbins=tbins, showlegend=False)
     fig.add_trace(t_hist, row=1, col=1)
-    fig.update_xaxes(range=[-10, 10], row=1, col=1)
+    fig.update_xaxes(title="t statistic", range=[-10, 10], row=1, col=1)
     fig.update_yaxes(range=[0, 250], row=1, col=1)
 
     # Plot a histogram of p values across all experiments
     pbins = dict(start=0, end=1, size=.025)
     p_hist = go.Histogram(x=ps, autobinx=False, xbins=pbins, showlegend=False)
     fig.add_trace(p_hist, row=1, col=2)
-    fig.update_xaxes(range=[0, 1], row=1, col=2)
+    fig.update_xaxes(title="p value", range=[0, 1], row=1, col=2)
     fig.update_yaxes(range=[0, 1000], row=1, col=2)
 
     return fig
