@@ -9,9 +9,8 @@ import plotly.graph_objects as go
 import numpy as np
 import statsmodels.api as sm
 
-# --- Define the layout of the app
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+# --- Define the underlying regression model
 
 true_intercept = 2
 true_slope = 1.25
@@ -25,6 +24,11 @@ starting_intercept = np.random.choice(intercept_options)
 
 slope_options = np.arange(-1, 3.25, .25)
 starting_slope = np.random.choice(slope_options)
+
+
+# --- Define the layout of the app
+
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 app.layout = dbc.Container([
 
@@ -76,7 +80,7 @@ app.layout = dbc.Container([
         ],
     ),
 
-    html.Iframe(id="results-text", width=500, height=0),
+    html.Pre(id="results-text"),
 
 ])
 
@@ -201,26 +205,15 @@ def plot_residuals(intercept, slope):
 
 
 @app.callback(
-    Output("results-text", "srcDoc"),
+    Output("results-text", "children"),
     [Input("results-check", "value")],
 )
 def print_ols_fit(checked):
     if checked:
         m = sm.OLS(y, sm.add_constant(x)).fit()
-        return m.summary().as_html()
+        return m.summary().as_text()
     else:
         return ""
-
-
-@app.callback(
-    Output("results-text", "height"),
-    [Input("results-check", "value")],
-)
-def show_ols_fit(checked):
-    if checked:
-        return 500
-    else:
-        return 0
 
 
 if __name__ == '__main__':
