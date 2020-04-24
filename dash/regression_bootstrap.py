@@ -51,7 +51,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = dbc.Container([
 
-    html.H1("Bootstrapping linear regression"),
+    html.H1("Confidence intervals on regression model"),
 
     dcc.Graph(
         id="plot",
@@ -63,7 +63,7 @@ app.layout = dbc.Container([
         options=[
             {"label": "Show observations included in bootstrap sample",
              "value": "bootstrap"},
-            {"label": "Show analytic distribution of error around prediction",
+            {"label": "Show analytic distribution of error around estimate",
              "value": "error"},
         ],
         value="bootstrap",
@@ -91,9 +91,11 @@ def plot_scatter(hover_action, hover_data):
     }
 
     # Set default element parameters
+    line_color = "#222299"
+    boot_red = "#cc2222"
+    boot_gray = "#999999"
     scatter_color = "#222222"
     scatter_size = 10
-    # TODO add model elements here too
 
     # Process the hover action
     hover_line = None
@@ -116,18 +118,19 @@ def plot_scatter(hover_action, hover_data):
         hover_sample = hover_line
         used, count = np.unique(boot_samples[hover_sample], return_counts=True)
         show_obs = np.in1d(np.arange(n_obs), used)
-        scatter_color = np.where(show_obs, "#cc2222", "#cccccc")
+        scatter_color = np.where(show_obs, boot_red, boot_gray)
         scatter_size = np.full(n_obs, 10)
         scatter_size[show_obs] = 10 * np.sqrt(count)
 
     # Plot the regression line for each bootstrap sample
     for i, yhat_boot in enumerate(yhat_boots):
 
-        color = "#999999"
         width = 1.5
+        color = boot_gray
+
         if hover_action == "bootstrap" and i == hover_line:
-            color = "#cc4444"
             width = 2.5
+            color = boot_red
 
         data.append({
             "x": xx, "y": yhat_boot,
@@ -141,20 +144,20 @@ def plot_scatter(hover_action, hover_data):
         {
             "x": xx, "y": yhat,
             "mode": "lines", "showlegend": False,
-            "line": {"color": "#222222", "width": 3},
+            "line": {"color": line_color, "width": 3},
             "hoverinfo": "none" if hover_action == "error" else "skip",
         },
         {
             "x": xx, "y": ci[0],
             "mode": "lines", "showlegend": False,
-            "line": {"color": "#88888844", "width": 0},
+            "line": {"color": line_color, "width": 0},
             "hoverinfo": "skip",
         },
         {
             "x": xx, "y": ci[1],
             "mode": "lines", "showlegend": False,
-            "line": {"color": "#88888844", "width": 0},
-            "fill": "tonexty",
+            "line": {"color": line_color, "width": 0},
+            "fill": "tonexty", "fillcolor": line_color + "33",
             "hoverinfo": "skip",
         }
     ])
@@ -183,17 +186,17 @@ def plot_scatter(hover_action, hover_data):
 
         data.extend([
             {
-                "x": err_x, "y": err_y,
+                "x": np.full_like(err_y, xx[hover_point]), "y": err_y,
                 "mode": "lines", "showlegend": False,
-                "line": {"color": "#222222", "width": 3},
+                "line": {"color": boot_red, "width": 1, "dash": "dash"},
                 "hoverinfo": "skip",
             },
             {
-                "x": np.full_like(err_y, xx[hover_point]), "y": err_y,
+                "x": err_x, "y": err_y,
                 "mode": "lines", "showlegend": False,
-                "line": {"color": "#666666", "width": 1, "dash": "dash"},
+                "line": {"color": boot_red, "width": 3},
                 "hoverinfo": "skip",
-            }
+            },
         ])
 
     fig = {
