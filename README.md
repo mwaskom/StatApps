@@ -1,16 +1,17 @@
-Statistical Examples
-====================
+Interactive apps for building statistical intuition
+===================================================
 
 This is a collection of web apps built using
-[Shiny](http://www.rstudio.com/shiny/) to illustrate and help build
-intuitions about some statistical concepts.
+[Shiny](http://www.rstudio.com/shiny/) and [Dash](https://plotly.com/dash/)
+that illustrate statistical concepts and help build intuitions about how they
+manifest.
 
 Sampling and standard error
 ---------------------------
 
 ![](shiny/sampling_and_stderr/screenshot.png)
 
-[Link to app](https://supsych.shinyapps.io/sampling_and_stderr/)
+[Link to Shiny app](https://supsych.shinyapps.io/sampling_and_stderr/)
 
 This example demonstrates the relationship between the standard
 deviation of a population, the standard deviation and standard error of
@@ -26,7 +27,7 @@ Simulating t tests
 
 ![](shiny/ttest_simulation/screenshot.png)
 
-[Link to app](https://supsych.shinyapps.io/ttest_simulation/)
+[Link to Shiny app](https://supsych.shinyapps.io/ttest_simulation/)
 
 This example performs 1000 one-sample t tests (with different samples
 from the same distribution) and plots the resulting histograms of t
@@ -41,7 +42,7 @@ Simple linear regression
 
 ![](shiny/simple_regression/screenshot.png)
 
-[Link to app](https://gallery.shinyapps.io/simple_regression/)
+[Link to Shiny app](https://gallery.shinyapps.io/simple_regression/)
 
 This example demonstrates the key objective of linear regression:
 finding the coefficients for a linear model that minimize the squared
@@ -53,7 +54,7 @@ Simple logistic regression
 
 ![](shiny/logistic_regression/screenshot.png)
 
-[Link to app](https://supsych.shinyapps.io/logistic_regression/)
+[Link to Shiny app](https://supsych.shinyapps.io/logistic_regression/)
 
 Similar to the linear regression example, this app shows how the goal of
 logistic regression is to find a model (expressed in linear coefficients
@@ -65,7 +66,7 @@ Regression uncertainty
 
 ![](shiny/regression_bootstrap/screenshot.png)
 
-[Link to app](https://gallery.shinyapps.io/regression_bootstrap/)
+[Link to Shiny app](https://gallery.shinyapps.io/regression_bootstrap/)
 
 This app plots a simple linear regression and allows the user to
 visualize the distribution of regression estimates from bootstrap
@@ -81,7 +82,7 @@ Modeling choices in multiple regression
 
 ![](shiny/multi_regression/screenshot.png)
 
-[Link to app](https://gallery.shinyapps.io/multi_regression/)
+[Link to Shiny app](https://gallery.shinyapps.io/multi_regression/)
 
 This app plots a basic multiple regression with two variables: x, a
 continuous measure, and group, a categorical measure. The app lets the
@@ -97,10 +98,10 @@ Multicollinearity in multiple regression
 
 ![](shiny/collinearity/screenshot.png)
 
-[Link to app](https://gallery.shinyapps.io/collinearity/)
+[Link to Shiny app](https://gallery.shinyapps.io/collinearity/)
 
 This app shows what happens to multiple regression results when there is
-considerable covariance between two contiunous predictor variables. Although
+considerable covariance between two continuous predictor variables. Although
 the overall model fit does not change as the covariance is increased (as
 visualized by the regression of y onto yhat and the R squared in the model
 summary), the parameter estimates become unstable and the confidence intervals
@@ -113,7 +114,7 @@ Simple mediation structure
 
 ![](shiny/mediation/screenshot.png)
 
-[Link to app](https://supsych.shinyapps.io/mediation)
+[Link to Shiny app](https://supsych.shinyapps.io/mediation)
 
 This app is intended to provide some intuition about simple mediation models.
 It allows you to specify a range of causal structures by changing the strength

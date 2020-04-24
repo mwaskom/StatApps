@@ -95,7 +95,6 @@ def plot_scatter(hover_action, hover_data):
     scatter_size = 10
     # TODO add model elements here too
 
-
     # Process the hover action
     hover_line = None
     hover_point = None
