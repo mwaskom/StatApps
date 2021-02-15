@@ -4,7 +4,8 @@ Interactive apps for building statistical intuition
 This is a collection of web apps built using
 [Shiny](http://www.rstudio.com/shiny/) and [Dash](https://plotly.com/dash/)
 that illustrate statistical concepts and help build intuitions about how they
-manifest.
+manifest. The Shiny apps were originally created while teaching
+[Psych252](https://psych252.github.io/) at Stanford.
 
 Sampling and standard error
 ---------------------------
